@@ -1,0 +1,26 @@
+version: 3.3
+
+services:
+  back:
+    container_name: back
+    build: .
+    ports:
+      - "4001:4001"
+    links:
+      - mongo:mongo
+    volumes:
+      - .:/usr/src/app
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    ports: 
+      - "27017:27017"
+    volume:
+      mongo:/var/lib/mysql
+
+volumes:
+  mongo:

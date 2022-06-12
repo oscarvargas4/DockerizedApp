@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "PORT=4001 nodemon src/index.js",
+        "dev": "PORT=4001 nodemon --legacy-watch src/index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
