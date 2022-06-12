@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const logger = require('../middleware/logger');
 
-router.get('/getAllUsers', async (req, res) => {
+router.get('/getAllUsers', logger, async (req, res) => {
     try {
         let allUsers = await User.find({});
 
