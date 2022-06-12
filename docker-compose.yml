@@ -4,6 +4,7 @@ services:
   back:
     container_name: back
     build: .
+    restart: always
     ports:
       - "4001:4001"
     links:
@@ -15,9 +16,7 @@ services:
   mongo:
     container_name: mongo
     image: mongo
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=root
+    restart: always
     ports: 
       - "27017:27017"
     volumes:
