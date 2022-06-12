@@ -1,4 +1,4 @@
-version: 3.3
+version: "3.3"
 
 services:
   back:
@@ -10,6 +10,7 @@ services:
       - mongo:mongo
     volumes:
       - .:/usr/src/app
+    command: bash -c "npm install && npm run dev"
 
   mongo:
     container_name: mongo
@@ -19,8 +20,8 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=root
     ports: 
       - "27017:27017"
-    volume:
-      mongo:/var/lib/mysql
+    volumes:
+      - mongo:/var/lib/mysql
 
 volumes:
   mongo:
