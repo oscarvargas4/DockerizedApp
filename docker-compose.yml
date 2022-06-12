@@ -1,6 +1,13 @@
 version: "3.3"
 
 services:
+  front:
+    container_name: reacttest
+    image: reacttest
+    restart: always
+    ports:
+      - "3000:3000"
+
   back:
     container_name: back
     build: .
